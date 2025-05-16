@@ -47,7 +47,7 @@ public class SLLMain06 {
         Mahasiswa06 mhs4 = new Mahasiswa06("21212203", "Dirga", "4D", 3.6);
 
         sll.print();
-        sll.addFirst(mhs4);
+        sll.addFirst(mhs4);     
         sll.print();
         sll.addLast(mhs1);
         sll.print();
