@@ -112,4 +112,130 @@ public class DoubleLinkedList06 {
         System.out.println("Data berhasil dihapus. Data yang dihapus: ");
         datahapus.Tampil();
     }
+    public void add(int index, Mahasiswa06 data) {
+        if (index < 0) {
+            System.out.println("Indeks tidak valid.");
+            return;
+        } if (index == 0) {
+            addFirst(data);
+            return;
+        }
+        Node06 current = head;
+        int i = 0;
+            while (current != null && i < index - 1) {
+                current = current.next;
+                i++;
+            } if (current == null) {
+                addLast(data);
+            } else if (current == tail) {
+                addLast(data);
+            } else {
+                Node06 newNode = new Node06(data);
+                newNode.next = current.next;
+                newNode.prev = current;
+                current.next.prev = newNode;
+                current.next = newNode;
+                System.out.println("Node berhasil ditambahkan pada indeks ke-" + index);
+            }
+    }
+    public void removeAfter(String keyNim) {
+        if (isEmpty()) {
+            System.out.println("List kosong, tidak bisa menghapus.");
+            return;
+    } Node06 current = head;
+        while (current != null && !current.data.nim.equals(keyNim)) {
+            current = current.next;
+        } if (current == null || current.next == null) {
+            System.out.println("Tidak ada node setelah NIM " + keyNim + " yang bisa dihapus.");
+            return;
+        }
+        Node06 toRemove = current.next;
+        Mahasiswa06 removedData = toRemove.data;
+            if (toRemove == tail) {
+                tail = current;
+                current.next = null;
+            } else {
+                current.next = toRemove.next;
+                toRemove.next.prev = current;
+            }
+            System.out.println("Node setelah NIM " + keyNim + " berhasil dihapus. Data yang terhapus:");
+            removedData.Tampil();
+    }
+    public void remove(int index) {
+    if (isEmpty()) {
+        System.out.println("List kosong, tidak bisa menghapus.");
+        return;
+    } if (index < 0) {
+        System.out.println("Indeks tidak valid.");
+        return;
+    } if (index == 0) {
+        removeFirst();
+        return;
+    }
+    Node06 current = head;
+    int i = 0;
+        while (current != null && i < index) {
+            current = current.next;
+            i++;
+        } if (current == null) {
+            System.out.println("Indeks di luar jangkauan.");
+            return;
+        }
+        Mahasiswa06 removedData = current.data;
+            if (current == tail) {
+                removeLast();
+            } else {
+                current.prev.next = current.next;
+                current.next.prev = current.prev;
+                System.out.println("Node pada indeks ke-" + index + " berhasil dihapus. Data yang terhapus:");
+                removedData.Tampil();
+            }
+    }
+    public void getFirst() {
+        if (isEmpty()) {
+            System.out.println("List kosong.");
+        } else {
+            System.out.println("Data pertama dalam list:");
+            head.data.Tampil();
+        }
+    }
+
+    public void getLast() {
+        if (isEmpty()) {
+            System.out.println("List kosong.");
+        } else {
+            System.out.println("Data terakhir dalam list:");
+            tail.data.Tampil();
+        }
+    }
+
+    public void getIndex(int index) {
+        if (isEmpty()) {
+            System.out.println("List kosong.");
+            return;
+        } if (index < 0) {
+            System.out.println("Indeks tidak valid.");
+            return;
+        }
+        Node06 current = head;
+        int i = 0;
+            while (current != null && i < index) {
+                current = current.next;
+                i++;
+            } if (current == null) {
+                System.out.println("Indeks melebihi jumlah elemen.");
+            } else {
+                System.out.println("Data pada indeks ke-" + index + ":");
+                current.data.Tampil();
+            }
+    }
+    public int size() {
+        int count = 0;
+        Node06 current = head;
+            while (current != null) {
+                count++;
+                current = current.next;
+            }
+            return count;
+    }
 }

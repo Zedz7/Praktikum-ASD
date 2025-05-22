@@ -10,5 +10,4 @@ public class Node06 {
         this.prev = null;
         this.next = null;
     }
-
 }
