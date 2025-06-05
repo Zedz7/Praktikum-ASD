@@ -31,6 +31,27 @@ public class binaryTreeMain06 {
         System.out.println("\nPostOrder Traversal:");
         bst.traversePostOrder(bst.root);
 
+        System.out.println("\nPenambahan data mahasiswa menggunakan rekursif: ");
+        bst.addRekursif(new mahasiswa06("244160111", "Masamba", "G", 3.12));
+        bst.addRekursif(new mahasiswa06("244160222", "Fuadin", "H", 3.45));
+        bst.traverseInOrder(bst.root);
+
+        
+        System.out.println("\n[Data Mahasiswa dengan IPK Minimum]");
+        mahasiswa06 min = bst.cariMinIPK();
+        if (min != null) {
+            min.tampilInformasi();
+        }
+
+        System.out.println("\n[Data Mahasiswa dengan IPK Maksimum]");
+        mahasiswa06 max = bst.cariMaxIPK();
+        if (max != null) {
+            max.tampilInformasi();
+        }
+
+        System.out.println("\n[Data Mahasiswa dengan IPK di atas 3.50]");
+        bst.tampilMahasiswaIPKdiAtas(3.50);
+
         System.out.println("\nPenghapusan data mahasiswa:");
         bst.delete(3.57);
         System.out.println("\nDaftar semua mahasiswa setelah penghapusan 1 mahasiswa (in order traversal):");
