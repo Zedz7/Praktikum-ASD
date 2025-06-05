@@ -1,12 +1,12 @@
 public class Antrian06 {
-    Mahasiswa06[] data;
+    mahasiswa06[] data;
     int front, rear, size, max;
     int totalDiproses = 0;
     int kuotaMahasiswa = 30;
 
     public Antrian06(int max) {
         this.max = max;
-        this.data = new Mahasiswa06[max];
+        this.data = new mahasiswa06[max];
         this.front = 0;
         this.rear = -1;
         this.size = 0;
@@ -34,7 +34,7 @@ public class Antrian06 {
             System.out.println("Queue masih kosong");
         }
     }
-    public void enqueue(Mahasiswa06 mhs) {
+    public void enqueue(mahasiswa06 mhs) {
         if (!isFull()) {
             rear = (rear + 1) % max;
             data[rear] = mhs;
@@ -47,7 +47,7 @@ public class Antrian06 {
     public void dequeueBatch() {
         System.out.println("Memanggil 2 mahasiswa untuk proses KRS:");
         for (int i = 0; i < 2 && !isEmpty(); i++) {
-            Mahasiswa06 mhs = data[front];
+            mahasiswa06 mhs = data[front];
             mhs.tampilkanData();
             front = (front + 1) % max;
             size--;

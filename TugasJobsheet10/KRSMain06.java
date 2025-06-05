@@ -34,7 +34,7 @@ public class KRSMain06 {
                     System.out.print("Masukkan Kelas: ");
                     String kelas = sc.nextLine();
 
-                    Mahasiswa06 mhs = new Mahasiswa06(nim, nama, prodi, kelas);
+                    mahasiswa06 mhs = new mahasiswa06(nim, nama, prodi, kelas);
                     antrian.enqueue(mhs);
                     break;
 

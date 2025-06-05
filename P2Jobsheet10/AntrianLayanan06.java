@@ -1,10 +1,10 @@
 public class AntrianLayanan06 {
-    Mahasiswa06[] data;
+    mahasiswa06[] data;
     int front, rear, size, max;
 
     public AntrianLayanan06(int max) {
         this.max = max;
-        this.data = new Mahasiswa06[max];
+        this.data = new mahasiswa06[max];
         this.front = 0;
         this.rear = -1;
         this.size = 0;
@@ -66,7 +66,7 @@ public class AntrianLayanan06 {
             System.out.println("Queue masih kosong");
         }
     }
-    public void tambahAntrian(Mahasiswa06 mhs) {
+    public void tambahAntrian(mahasiswa06 mhs) {
         if (isFull()) {
             System.out.println("Antrian penuh, tidak dapat menambah mahasiswa");
             return;
@@ -76,12 +76,12 @@ public class AntrianLayanan06 {
         size++;
         System.out.println(mhs.nama + " berhasil masuk ke antrian");
     }
-    public Mahasiswa06 layaniMahasiswa() {
+    public mahasiswa06 layaniMahasiswa() {
         if (isEmpty()) {
             System.out.println("Antrian kosong");
             return null;
         }
-        Mahasiswa06 mhs = data[front];
+        mahasiswa06 mhs = data[front];
         front = (front + 1) % max;
         size--;
         return mhs;

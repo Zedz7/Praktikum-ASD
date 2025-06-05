@@ -27,11 +27,11 @@ public class LayananAkademikSIAKAD06 {
                     String prodi = sc.nextLine();
                     System.out.print("Kelas       : ");
                     String kelas = sc.nextLine();
-                    Mahasiswa06 mhs = new Mahasiswa06(nim, nama, prodi, kelas);
+                    mahasiswa06 mhs = new mahasiswa06(nim, nama, prodi, kelas);
                     antrian.tambahAntrian(mhs);
                     break;
                 case 2: 
-                    Mahasiswa06 dilayani = antrian.layaniMahasiswa();
+                    mahasiswa06 dilayani = antrian.layaniMahasiswa();
                     if (dilayani != null) {
                         System.out.println("Melayani mahasiswa: ");
                         dilayani.tampilkanData();
